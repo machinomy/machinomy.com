@@ -1,0 +1,223 @@
+.my-title_bar {
+    background-color: #de5080;
+    height: 87px;
+}
+
+.my-title_bar_container {
+    padding-left: 40px;
+    display: table;
+}
+
+.my-title_bar_text {
+    font-family: "PT Mono", monospace;
+    font-size: 25pt;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+
+    display: table-cell;
+    height: 87px;
+    vertical-align: middle;
+}
+
+.my-title_bar_text.subtext {
+    font-family: "Helvetica", serif;
+    font-size: 14pt;
+    letter-spacing: 1px;
+    text-transform: none;
+    font-weight: normal;
+
+    padding-left: 30px;
+}
+
+.full-width {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: initial !important;
+}
+
+.my-body {
+    margin-top: 70px;
+}
+
+.my-center {
+    padding-left: 15px;
+}
+
+.my-center_text {
+    font-family: "Roboto Slab", monospace;
+    font-size: 29pt;
+    color: #afb1b4;
+    line-height: 1.7;
+    font-weight: bold;
+}
+
+.dark-text {
+    color: #231f20;
+}
+
+.pink-text {
+    color: #de5080;
+}
+
+.blue-text {
+    color: #5369b1;
+}
+
+.lightblue-text {
+    color: #00aeef;
+}
+
+.opaque-text {
+    opacity: 0.5;
+}
+
+.my-left_raspberry {
+    padding-top: 80px;
+}
+
+.my-left_raspberry_text {
+    font-size: 11pt;
+    font-family: Helvetica, serif;
+    font-weight: bold;
+    line-height: 0.8;
+}
+
+.my-left_raspberry img {
+    margin-bottom: 5px;
+}
+
+.my-left_3rd_party {
+    padding-top: 97px;
+}
+
+.my-left_3rd_party_text {
+    font-size: 11pt;
+    font-family: Helvetica, serif;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.my-right_transaction {
+    padding-top: 140px;
+}
+
+.my-benefits_header {
+    font-family: "Roboto Slab", serif;
+    font-size: 30pt;
+    font-weight: bold;
+    padding-top: 65px;
+}
+
+.my-benefits_body_header {
+    font-family: "Roboto Slab", serif;
+    font-weight: bold;
+    font-size: 18pt;
+    padding-top: 80px;
+}
+
+.my-benefits_body_header img {
+    padding-left: 15px;
+    position: relative;
+    bottom: 14px;
+    height: 50px;
+}
+
+.my-benefits_body_header.machines {
+    padding-top: 0;
+}
+
+.my-benefits_body_text {
+    color: #231f20;
+    font-family: Helvetica, serif;
+    font-size: 14pt;
+}
+
+.br {
+    height: 10px;
+}
+
+.my-landscape {
+    margin-top: 70px;
+}
+
+.my-landscape_header {
+    font-family: "Roboto Slab", serif;
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+.my-landscape_body {
+    margin-top: 22px;
+    color: #231f20;
+    font-family: Helvetica, serif;
+    font-size: 14pt;
+}
+
+.my-landscape_body a {
+    color: #00aeef;
+    text-decoration: underline;
+}
+
+.my-landscape_body a:hover {
+    text-decoration: none;
+}
+
+.my-landscape_body a:visited {
+    color: #5369b1;
+    text-decoration: underline;
+}
+
+.my-footer {
+    background-color: #333332;
+    height: 233px;
+    margin-top: 100px;
+    position: relative;
+}
+
+.my-footer .column {
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.my-footer_left_text {
+    color: white;
+    font-family: "Roboto Slab", serif;
+    font-size: 29pt;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.my-footer_center_input {
+    height: 70px;
+    width: 70%;
+    display: inline-block;
+    border-top-right-radius: initial;
+    border-bottom-right-radius: initial;
+    margin: 0;
+    font-family: Helvetica, serif;
+    font-size: 19pt;
+}
+
+.my-footer_center_button {
+    height: 70px;
+    width: 30%;
+    background-color: #de5080;
+    border-top-left-radius: initial;
+    border-bottom-left-radius: initial;
+    outline: none;
+    margin: 0;
+    font-family: "Roboto Slab", serif;
+    font-size: 17pt;
+    font-weight: bold;
+    color: white;
+}
+
+.my-footer_right_text {
+    font-family: Helvetica, serif;
+    font-size: 14pt;
+    color: white;
+}
