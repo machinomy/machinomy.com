@@ -1,9 +1,6 @@
 "use strict";
 
 import gulp from 'gulp';
-import nano from 'gulp-cssnano';
-import uncss from 'gulp-uncss';
-import concat from 'gulp-concat';
 import clean from 'gulp-clean';
 
 import metalsmith from 'metalsmith';
@@ -46,7 +43,8 @@ var forge = metalsmith(__dirname)
 var buildForge = (metal) => {
     return metal.build((err) => {
         if (err) {
-            console.log(err);
+            // console.log(err);
+            throw err;
         }
     });
 };
