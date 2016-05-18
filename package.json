@@ -25,6 +25,7 @@
     "metalsmith-postcss": "^4.0.0",
     "metalsmith-serve": "0.0.7",
     "metalsmith-watch": "^1.0.2",
-    "postcss-import": "^8.1.2"
+    "postcss-import": "^8.1.2",
+    "postcss-nested": "^1.0.0"
   }
 }

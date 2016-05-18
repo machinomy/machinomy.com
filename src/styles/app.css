@@ -24,13 +24,30 @@
 }
 
 .my-title_bar_text.subtext {
-    font-family: "Helvetica", serif;
+    font-family: "PT Sans", serif;
+    font-size: 8pt;
+    letter-spacing: 1px;
+    text-transform: none;
+    font-weight: normal;
+}
+
+.my-title_bar_text-menu {
+    font-family: "PT Sans", serif;
     font-size: 14pt;
     letter-spacing: 1px;
     text-transform: none;
     font-weight: normal;
-
-    padding-left: 30px;
+    color: white;
+    display: table-cell;
+    height: 87px;
+    vertical-align: middle;
+    text-align: right;
+    a.important {
+        color: white;
+        border: 2pt solid white;
+        padding: 3pt;
+        border-radius: 3pt;
+    }
 }
 
 .full-width {

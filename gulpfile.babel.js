@@ -36,7 +36,8 @@ var forge = metalsmith(__dirname)
     .use(postCss({
         plugins: {
             'postcss-import': {},
-            'cssnano': {}
+            'cssnano': {},
+            'postcss-nested': {}
         }
     }))
     .use(imageMin({collapseWhitespace: true}))
@@ -61,7 +62,10 @@ gulp.task('serve', () => {
            verbose: true
        }))
        .use(watch({
-           pattern: '**/*'
+           paths: {
+               "${source}/**/*": "**/*"
+           },
+           livereload: true
        }));
     buildForge(servingForge);
 });
