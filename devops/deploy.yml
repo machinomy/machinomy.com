@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: True
+  tasks:
+    - name: Git
+      git:
+        repo: git@github.com:machinomy/machinomy.com.git
+        dest: /var/www/site
+        accept_hostkey: yes
