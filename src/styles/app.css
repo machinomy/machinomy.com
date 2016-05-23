@@ -239,4 +239,7 @@
     font-family: Helvetica, serif;
     font-size: 14pt;
     color: white;
+    a {
+        font-size: xx-large;
+    }
 }
