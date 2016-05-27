@@ -37,7 +37,7 @@ var forge = metalsmith(__dirname)
             'postcss-nested': {}
         }
     }))
-    .use(imageMin({collapseWhitespace: true}))
+    //.use(imageMin({collapseWhitespace: true}))
     .use(htmlMin());
 
 var buildForge = (metal) => {
