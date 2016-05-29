@@ -35,6 +35,7 @@
 
     .my-title_bar_container {
         padding-top: 17px;
+        padding-left: 15px !important;
     }
 
     .my-titile_bar_vision_btn_text {
@@ -93,6 +94,18 @@
 
     .my-footer_right.newsletters {
         margin-top: 9px;
+    }
+
+    .my-footer_left_text {
+        font-size: 23pt !important;
+    }
+
+    .my-footer_center_input {
+        font-size: 15pt !important;
+    }
+
+    .my-footer_center_button {
+        font-size: 12pt !important;
     }
 }
 
