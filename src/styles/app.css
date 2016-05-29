@@ -1,5 +1,101 @@
 @import "foundation.css";
 
+@media only screen and (max-width: 1100px) {
+
+    .text-right {
+        text-align: left !important;
+    }
+
+    .my-footer .column {
+        top: 20% !important;
+        transform: none !important;
+        margin-bottom: 20px;    }
+
+    .my-multiline_text div {
+        display: inline;
+    }
+
+    .my-multiline_text div:not(:last-of-type)::after {
+        content: "\00a0";
+    }
+
+    .my-benefits_body_header.machines {
+        padding-top: 80px !important;
+    }
+
+    .my-title_bar_text {
+        display: block !important;
+        line-height: normal;
+        height: inherit !important;
+    }
+
+    .my-title_bar_text.subtext {
+        display: block;
+    }
+
+    .my-title_bar_container {
+        padding-top: 17px;
+    }
+
+    .my-titile_bar_vision_btn_text {
+        display: none;
+    }
+
+    .my-titile_bar_vision_btn_icon {
+        display: inline-block !important;
+    }
+
+    .my-title_bar_text-menu {
+        height: inherit !important;
+    }
+
+    .my-right_transaction {
+        padding-top: 20px !important;
+    }
+
+    .my-left_raspberry {
+        padding-top: 0 !important;
+    }
+
+    .my-left_3rd_party {
+        padding-top: 20px !important;
+    }
+
+    .my-center {
+        padding-top: 20px;
+    }
+
+    .my-body {
+        margin-top: 30px !important;
+    }
+
+    .my-title_bar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1;
+    }
+
+    body {
+        padding-top: 87px;
+    }
+
+    .my-footer {
+        height: inherit !important;
+        margin-top: 40px !important;
+        padding-top: 30px;
+    }
+
+    .my-footer_right {
+        display: inline;
+        width: initial;
+    }
+
+    .my-footer_right.newsletters {
+        margin-top: 9px;
+    }
+}
+
 .my-title_bar {
     background-color: #de5080;
     height: 87px;
@@ -21,6 +117,10 @@
     display: table-cell;
     height: 87px;
     vertical-align: middle;
+
+    width: 1%;
+    white-space: nowrap;
+    padding-right: 10px;
 }
 
 .my-title_bar_text.subtext {
@@ -242,4 +342,8 @@
     a {
         font-size: xx-large;
     }
+}
+
+.fa.my-titile_bar_vision_btn_icon {
+    display: none;
 }
