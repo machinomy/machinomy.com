@@ -9,11 +9,13 @@ Machinomy official page.
     
 ## Build
 
+Not necessary, actually, to do that. `gulp serve` rebuilds the website on any code change.
+
     $ npm install
     $ gulp build
     # Built website is in dist/
      
-## Deployment
+## Deploy
 
 In order to deploy the web site, you have to
 1. Install [ansible](https://www.ansible.com) at your local machine
