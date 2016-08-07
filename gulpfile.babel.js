@@ -9,7 +9,6 @@ import layouts from 'metalsmith-layouts';
 import permalinks from 'metalsmith-permalinks';
 import serve from 'metalsmith-serve';
 import watch from 'metalsmith-watch';
-import imageMin from 'metalsmith-imagemin';
 import htmlMin from 'metalsmith-html-minifier';
 import postCss from 'metalsmith-postcss';
 

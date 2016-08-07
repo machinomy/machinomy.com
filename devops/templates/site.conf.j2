@@ -1,0 +1,15 @@
+server {
+  listen      *:80;
+
+  server_name machinomy.com;
+  root        {{site_dir}}/dist;
+
+  access_log  /var/log/nginx/{{site_name}}.log;
+
+  client_max_body_size 10000k;
+
+  location / {
+    root      {{site_dir}}/dist;
+    index     index.html;
+  }
+}
