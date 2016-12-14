@@ -2,30 +2,46 @@
   "name": "machinomy-landing",
   "version": "1.0.0",
   "description": "",
-  "main": "index.html",
+  "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./node_modules/gulp/bin/gulp.js build"
+    "start": "gulp",
+    "build": "gulp build --production"
   },
   "author": "Konstantin Makarychev",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "babel-core": "^6.8.0",
-    "babel-preset-es2015": "^6.6.0",
-    "cssnano": "^3.5.2",
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "metalsmith": "^2.1.0",
-    "metalsmith-html-minifier": "^2.0.0",
-    "metalsmith-imagemin": "^1.2.0",
-    "metalsmith-layouts": "^1.6.5",
-    "metalsmith-markdown": "^0.2.1",
-    "metalsmith-permalinks": "^0.5.0",
-    "metalsmith-postcss": "^4.0.0",
-    "metalsmith-serve": "0.0.7",
-    "metalsmith-watch": "^1.0.2",
-    "postcss-import": "^8.1.2",
-    "postcss-nested": "^1.0.0"
-  }
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.7.2",
+    "browser-sync": "^2.10.0",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-cli": "^1.2.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-extname": "^0.2.0",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-uncss": "^1.0.1",
+    "js-yaml": "^3.4.6",
+    "panini": "^1.3.0",
+    "rimraf": "^2.4.3",
+    "style-sherpa": "^1.0.0",
+    "yargs": "^3.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/machinomy/machinomy.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/machinomy/machinomy.com/issues"
+  },
+  "babel": {
+    "presets": ["es2015"]
+  },
+  "private": true
 }

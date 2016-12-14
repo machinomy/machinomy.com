@@ -1,76 +1,133 @@
-"use strict";
+'use strict';
 
-import gulp from 'gulp';
-import clean from 'gulp-clean';
+import plugins  from 'gulp-load-plugins';
+import yargs    from 'yargs';
+import browser  from 'browser-sync';
+import gulp     from 'gulp';
+import panini   from 'panini';
+import rimraf   from 'rimraf';
+import yaml     from 'js-yaml';
+import fs       from 'fs';
 
-import metalsmith from 'metalsmith';
-import markdown from 'metalsmith-markdown';
-import layouts from 'metalsmith-layouts';
-import permalinks from 'metalsmith-permalinks';
-import serve from 'metalsmith-serve';
-import watch from 'metalsmith-watch';
-import htmlMin from 'metalsmith-html-minifier';
-import postCss from 'metalsmith-postcss';
+// Load all Gulp plugins into one variable
+const $ = plugins();
 
-var SRC = './src',
-    DIST = './dist';
+// Check for --production flag
+const PRODUCTION = !!(yargs.argv.production);
 
-var forge = metalsmith(__dirname)
-    .metadata({
-        title: 'Machinomy',
-        description: 'Distributed platform for IoT micropayments',
-        generator: 'Metalsmith',
-        url: 'http://machinomy.com'
-    })
-    .source(SRC)
-    .destination(DIST)
-    .use(markdown())
-    .use(permalinks())
-    .use(layouts({
-        engine: 'handlebars'
-    }))
-    .use(postCss({
-        plugins: {
-            'postcss-import': {},
-            'cssnano': {},
-            'postcss-nested': {}
-        }
-    }))
-    //.use(imageMin({collapseWhitespace: true}))
-    .use(htmlMin());
+// Load settings from settings.yml
+const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
 
-var buildForge = (metal) => {
-    return metal.build((err) => {
-        if (err) {
-            // console.log(err);
-            throw err;
-        }
+function loadConfig() {
+    let ymlFile = fs.readFileSync('config.yml', 'utf8');
+    return yaml.load(ymlFile);
+}
+
+// Build the "dist" folder by running all of the below tasks
+gulp.task('build',
+    gulp.series(clean, gulp.parallel(pages, sass, javascript, images, copy)));
+
+// Build the site, run the server, and watch for file changes
+gulp.task('default',
+    gulp.series('build', server, watch));
+
+// Delete the "dist" folder
+// This happens every time a build starts
+function clean(done) {
+    rimraf(PATHS.dist, done);
+}
+
+// Copy files out of the assets folder
+// This task skips over the "img", "js", and "scss" folders, which are parsed separately
+function copy() {
+    return gulp.src(PATHS.assets)
+        .pipe(gulp.dest(PATHS.dist + '/assets'));
+}
+
+// Copy page templates into finished HTML files
+function pages() {
+    return gulp.src('src/pages/**/*.{html,hbs,handlebars}')
+        .pipe(panini({
+            root: 'src/pages/',
+            layouts: 'src/layouts/',
+            partials: 'src/partials/',
+            data: 'src/data/',
+            helpers: 'src/helpers/'
+        }))
+        .pipe($.extname('.html'))
+        .pipe(gulp.dest(PATHS.dist));
+}
+
+// Load updated HTML templates and partials into Panini
+function resetPages(done) {
+    panini.refresh();
+    done();
+}
+
+// Compile Sass into CSS
+// In production, the CSS is compressed
+function sass() {
+    return gulp.src('src/assets/scss/app.scss')
+        .pipe($.sourcemaps.init())
+        .pipe($.sass({
+            includePaths: PATHS.sass
+        })
+            .on('error', $.sass.logError))
+        .pipe($.autoprefixer({
+            browsers: COMPATIBILITY
+        }))
+        // Comment in the pipe below to run UnCSS in production
+        //.pipe($.if(PRODUCTION, $.uncss(UNCSS_OPTIONS)))
+        .pipe($.if(PRODUCTION, $.cssnano()))
+        .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
+        .pipe(gulp.dest(PATHS.dist + '/assets/css'))
+        .pipe(browser.reload({ stream: true }));
+}
+
+// Combine JavaScript into one file
+// In production, the file is minified
+function javascript() {
+    return gulp.src(PATHS.javascript)
+        .pipe($.sourcemaps.init())
+        .pipe($.babel())
+        .pipe($.concat('app.js'))
+        .pipe($.if(PRODUCTION, $.uglify()
+            .on('error', e => { console.log(e); })
+        ))
+        .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
+        .pipe(gulp.dest(PATHS.dist + '/assets/js'));
+}
+
+// Copy images to the "dist" folder
+// In production, the images are compressed
+function images() {
+    return gulp.src('src/assets/img/**/*')
+        .pipe($.if(PRODUCTION, $.imagemin({
+            progressive: true
+        })))
+        .pipe(gulp.dest(PATHS.dist + '/assets/img'));
+}
+
+// Start a server with BrowserSync to preview the site in
+function server(done) {
+    browser.init({
+        server: PATHS.dist, port: PORT
     });
-};
+    done();
+}
 
-gulp.task('metalsmith', () => {
-    buildForge(forge)
-});
+// Reload the browser with BrowserSync
+function reload(done) {
+    browser.reload();
+    done();
+}
 
-gulp.task('serve', () => {
-   let servingForge = forge
-       .use(serve({
-           port: 4000,
-           verbose: true
-       }))
-       .use(watch({
-           paths: {
-               "${source}/**/*": "**/*"
-           },
-           livereload: true
-       }));
-    buildForge(servingForge);
-});
-
-gulp.task('clean', () => {
-    return gulp
-        .src(DIST, {read: false})
-        .pipe(clean());
-});
-
-gulp.task('build', ['metalsmith']);
+// Watch for changes to static assets, pages, Sass, and JavaScript
+function watch() {
+    gulp.watch(PATHS.assets, copy);
+    gulp.watch('src/pages/**/*.{html,hbs,handlebars}').on('all', gulp.series(pages, browser.reload));
+    gulp.watch('src/{layouts,partials}/**/*.{html,hbs,handlebars}').on('all', gulp.series(resetPages, pages, browser.reload));
+    gulp.watch('src/assets/scss/**/*.scss').on('all', gulp.series(sass, browser.reload));
+    gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(javascript, browser.reload));
+    gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
+}
