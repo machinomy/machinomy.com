@@ -107,7 +107,6 @@
   margin-bottom: 3rem;
 
   .landing-title {
-    font-size: 250%;
     margin-top: 1.5rem;
 
     .toggle {
@@ -181,4 +180,26 @@
 
 .bigger-text {
   font-size: x-large;
+  margin-bottom: 2rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Roboto Slab', 'PT Serif', serif;
+  font-weight: bolder;
+}
+
+.column.benefits {
+  .title {
+    margin-top: .7rem;
+    margin-bottom: -0.2rem;
+  }
+  img {
+    padding-left: 15px;
+    margin-bottom: .2rem;
+    position: relative;
+    vertical-align: middle;
+  }
+  p {
+    margin-bottom: .5ex;
+  }
 }
