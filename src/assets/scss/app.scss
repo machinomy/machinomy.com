@@ -49,6 +49,12 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
+.text {
+  a {
+    border-bottom: 1px solid $anchor-color;
+  }
+}
+
 .top-bar, .title-bar {
   background-color: map-get($foundation-palette, primary);
   color: white;
@@ -86,6 +92,7 @@
   }
   ul.menu {
     background: transparent;
+    float: left;
 
     li>a {
       line-height: $line-height;
@@ -97,6 +104,13 @@
       li>a {
         line-height: 2.5;
         padding-left: $topbar-padding;
+      }
+    }
+
+    &.community {
+      float: right;
+      li:last-child > a {
+        padding-right: 0;
       }
     }
   }
@@ -178,9 +192,22 @@
   }
 }
 
+section.row {
+  margin-top: 2rem;
+
+  .row.features {
+    p {
+      font-weight: bolder;
+    }
+    img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+}
+
 .bigger-text {
   font-size: x-large;
-  margin-bottom: 2rem;
 }
 
 h1, h2, h3, h4 {
@@ -190,7 +217,7 @@ h1, h2, h3, h4 {
 
 .column.benefits {
   .title {
-    margin-top: .7rem;
+    margin-top: 1rem;
     margin-bottom: -0.2rem;
   }
   img {
@@ -201,5 +228,36 @@ h1, h2, h3, h4 {
   }
   p {
     margin-bottom: .5ex;
+  }
+}
+
+.footer {
+  background: #333333;
+  padding: 1rem;
+  color: white;
+
+  ul.community.menu, ul.texting.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li:first-child a {
+      padding-left: 0;
+    }
+    li a {
+      color: white;
+
+      img {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid map_get($foundation-palette, primary);
+    margin: 1em 0;
+    padding: 0;
   }
 }
