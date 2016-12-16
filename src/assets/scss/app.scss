@@ -116,22 +116,26 @@
   }
 }
 
-.landing {
+#landing-main {
   margin-top: 3rem;
   margin-bottom: 3rem;
 
   .landing-title {
     margin-top: 1.5rem;
 
+    h2 {
+      line-height: 1.5;
+    }
+
     .toggle {
       border-bottom: 1px dashed map_get($foundation-palette, dark-blue);
       color: map_get($foundation-palette, dark-blue);
       cursor: pointer;
+      padding: 0.4rem;
 
       &.active {
         background-color: map_get($foundation-palette, dark-blue);
         color: white;
-        padding: 0.4rem;
         border: none;
       }
     }
@@ -145,7 +149,7 @@
     border: 1px solid #ccc;
 
     font-family: 'PT Mono', monospace;
-    min-height: 16rem;
+    min-height: 24rem;
 
     .toolbar {
       background: #f0f0f0;

@@ -36,12 +36,12 @@
     </div>
 </div>
 
-<div class="row landing">
+<div class="row" id="landing-main">
     <div class="large-4 column text-right landing-title">
         <h2>
         Make your device<br />
-        <span class="toggle" id="toggle-earn">earn</span> or
-        <span class="toggle active" id="toggle-pay">pay</span>
+        <span class="toggle" data-toggle="earn">earn</span> or
+        <span class="toggle active" data-toggle="pay">pay</span>
         </h2>
     </div>
     <div class="large-6 column">
@@ -54,7 +54,7 @@
                     <div class="title">Terminal</div>
                 </div>
                 <div class="window-content">
-                    <div class="example-pay" style="display: none;">
+                    <div class="example example-pay">
                         <pre>
 $ npm install machinomy
 $ machinomy buy http://machinomy.com/test
@@ -63,8 +63,9 @@ $ machinomy buy http://machinomy.com/test
 $ _
                         </pre>
                     </div>
-                    <div class="example-reeceive">
+                    <div class="example example-earn hide">
                         <pre>
+$ npm install machinomy
 $ cat server.js
 <strong>...
 app.get("/test", paywall.guard(1000, (req, res) => {
@@ -73,10 +74,10 @@ app.get("/test", paywall.guard(1000, (req, res) => {
 }));
 
 app.listen(3000, () => {
-    console.log("Serving at http://localhost:3000...");
+    console.log("Serving at http://localhost:3000/test");
 });</strong>
 $ node server.js
-<strong>Serving at http://localhost:3000...</strong>
+<strong>Serving at http://localhost:3000/test</strong>
 _</pre>
                     </div>
                 </div>
@@ -173,10 +174,10 @@ _</pre>
         </div>
         <div class="large-6 column text-right">
             <ul class="community menu">
-                <li><a href="#fixme"><img src="/assets/img/social/twitter.svg" width="24" height="24" />Follow</a></li>
-                <li><a href="#fixme"><img src="/assets/img/social/gitter.svg" width="24" height="24" />Chat</a></li>
-                <li><a href="#fixme"><img src="/assets/img/social/discourse.png" width="24" height="24" />Discuss</a></li>
-                <li><a href="#fixme"><img src="/assets/img/social/github.svg" width="24" height="24" />Fork</a></li>
+                <li><a href="#fixme"><img src="{{root}}assets/img/social/twitter.svg" width="24" height="24" />Follow</a></li>
+                <li><a href="#fixme"><img src="{{root}}assets/img/social/gitter.svg" width="24" height="24" />Chat</a></li>
+                <li><a href="#fixme"><img src="{{root}}assets/img/social/discourse.png" width="24" height="24" />Discuss</a></li>
+                <li><a href="#fixme"><img src="{{root}}assets/img/social/github.svg" width="24" height="24" />Fork</a></li>
             </ul>
             <hr />
             <ul class="texting menu">
