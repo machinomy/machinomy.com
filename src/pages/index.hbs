@@ -18,15 +18,15 @@
             </div>
             <div class="medium-6 column">
                 <ul class="menu" data-dropdown-menu>
-                    <li><a href="//community.machinomy.com">Community</a></li>
+                    <li><a href="{{ urls.gitter }}">Community</a></li>
                     <li><a href="/documentation">Documentation</a></li>
                     <li><a href="/blog">Blog</a></li>
                 </ul>
 
                 <ul class="community menu show-for-large">
-                    <li><a href="#fixme"><img src="/assets/img/social/twitter-white.svg" width="24" height="24" /></a></li>
-                    <li><a href="#fixme"><img src="/assets/img/social/gitter-white.svg" width="24" height="24" /></a></li>
-                    <li><a href="#fixme"><img src="/assets/img/social/github-white.svg" width="24" height="24" /></a></li>
+                    <li><a href="{{ urls.twitter }}"><img src="/assets/img/social/twitter-white.svg" width="24" height="24" /></a></li>
+                    <li><a href="{{ urls.gitter }}"><img src="/assets/img/social/gitter-white.svg" width="24" height="24" /></a></li>
+                    <li><a href="{{ urls.github.machinomy }}"><img src="/assets/img/social/github-white.svg" width="24" height="24" /></a></li>
                 </ul>
             </div>
             <div class="medium-2 column">
@@ -39,9 +39,12 @@
 <div class="row" id="landing-main">
     <div class="large-4 column text-right landing-title">
         <h2>
-        Make your device<br />
-        <span class="toggle" data-toggle="earn">earn</span> or
-        <span class="toggle active" data-toggle="pay">pay</span>
+            Make your device<br />
+            <span class="toggle" data-toggle="earn">earn</span> or
+            <span class="toggle active" data-toggle="pay">pay</span>
+            <div class="action-button">
+                <a href="/documentation/getting-started">Get Started ⟩⟩⟩</a>
+            </div>
         </h2>
     </div>
     <div class="large-6 column">
@@ -70,7 +73,7 @@ $ cat server.js
 <strong>...
 app.get("/test", paywall.guard(1000, (req, res) => {
     res.write("Have just received 1000 wei.\n");
-    res.send("Hello, meat world!\n");
+    res.end("Hello, meat world!");
 }));
 
 app.listen(3000, () => {
@@ -160,7 +163,7 @@ _</pre>
             </div>
         </div>
         <p>
-            Go to <a href="#fixme">Documentation</a> to learn more about the library. <a href="#fixme">Getting Started</a> tutorial will show you how to use the library to say the very first word in the machine economy.
+            Go to <a href="/documentation">Documentation</a> to learn more about the library. <a href="/documentation/getting-started">Getting Started</a> tutorial will show you how to use the library to say the very first word in the machine economy.
         </p>
     </div>
     <div class="large-2 column">&nbsp;</div>
@@ -174,16 +177,16 @@ _</pre>
         </div>
         <div class="large-6 column text-right">
             <ul class="community menu">
-                <li><a href="#fixme"><img src="{{root}}assets/img/social/twitter.svg" width="24" height="24" />Follow</a></li>
-                <li><a href="#fixme"><img src="{{root}}assets/img/social/gitter.svg" width="24" height="24" />Chat</a></li>
-                <li><a href="#fixme"><img src="{{root}}assets/img/social/discourse.png" width="24" height="24" />Discuss</a></li>
-                <li><a href="#fixme"><img src="{{root}}assets/img/social/github.svg" width="24" height="24" />Fork</a></li>
+                <li><a href="{{ urls.twitter }}"><img src="{{root}}assets/img/social/twitter-white.svg" width="24" height="24" />Follow</a></li>
+                <li><a href="{{ urls.gitter }}"><img src="{{root}}assets/img/social/gitter-white.svg" width="24" height="24" />Discuss</a></li>
+                {{!-- <li><a href="#fixme"><img src="{{root}}assets/img/social/discourse.png" width="24" height="24" />Discuss</a></li> --}}
+                <li><a href="{{ urls.github.machinomy }}"><img src="{{root}}assets/img/social/github-white.svg" width="24" height="24" />Fork</a></li>
             </ul>
             <hr />
             <ul class="texting menu">
-                <li><a href="#fixme">Documentation</a></li>
-                <li><a href="#fixme">Blog</a></li>
-                <li><a href="#fixme">About</a></li>
+                <li><a href="/documentation">Documentation</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about">About</a></li>
             </ul>
         </div>
         <div class="large-2 column">
