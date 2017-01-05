@@ -279,3 +279,14 @@ ul.menu {
     }
   }
 }
+
+.content {
+  pre>code {
+    display: block;
+    margin: 0 auto 1rem auto;
+    padding: 1rem;
+  }
+  a {
+    text-decoration: underline;
+  }
+}

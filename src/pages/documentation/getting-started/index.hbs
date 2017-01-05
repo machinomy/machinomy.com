@@ -1,1 +1,43 @@
-FIXME Getting Started
+<section class="row">
+    <div class="large-4 column">&nbsp;</div>
+    <div class="large-6 column content">
+        <h1>Getting Started</h1>
+        <p>
+            An idea behind Machinomy project is to allow any device to pay another
+            device a minuscule amount of money over the internet.
+            Current implementation is a Node.js package. It represents a somewhat constrained vision:
+            allows a device to instantly pay a fraction of Ether over HTTP, no trust established.
+            Actually, the device is a networked computer able to run geth
+            and Node.js. A server or your laptop qualify, as well as Raspberry Pi board.
+        </p>
+
+        <p>
+            Paying over HTTP for service implies there is a buyer and a seller. As a simplification for future developments,
+            buyer is called <i>sender</i>, and seller is named <i>receiver</i> below.
+        </p>
+
+        <h2>Installation</h2>
+        <pre><code>$ npm install -g machinomy</code></pre>
+        <p>
+            Then set it all up using your ethereum account. By default, machinomy uses
+            <a href="//blog.ethereum.org/2016/11/20/from-morden-to-ropsten/">Ropsten</a>, a current test network,
+            to prevent erroneous expenditures. Console commands also assume
+            you act on behalf of sender side.
+        </p>
+        <script type="text/javascript" src="https://asciinema.org/a/7prjv1opg5fzcmao2d9u2w82y.js" data-theme="solarized-light" id="asciicast-7prjv1opg5fzcmao2d9u2w82y" async></script>
+        <p>
+            For a receiver side provide an option <code>-n receiver</code> or <code>--namespace receiver</code>.
+        </p>
+        <script type="text/javascript" src="https://asciinema.org/a/0yo57pswmuaw1k5i9cxmnngtt.js" data-theme="solarized-light" id="asciicast-0yo57pswmuaw1k5i9cxmnngtt" async></script>
+        <p>
+            You could override any password provided here using environment variable, as will be shown below.
+        </p>
+
+        <h2>Buy</h2>
+        <p>
+            Now, after you set it up, start local geth instance. For now, machinomy is not itself an Ethereum node.
+            Then, issue <code>machinomy buy</code> command:
+        </p>
+    </div>
+    <div class="large-2 column">&nbsp;</div>
+</section>

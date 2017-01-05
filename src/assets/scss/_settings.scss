@@ -80,6 +80,24 @@ $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
+$solarized-light-palette: (
+        base3: #FDF6E3,
+        base2: #EEE8D5,
+        base1: #93A1A1,
+        base0: #839496,
+        base00: #657B83,
+        base01: #586E75,
+        base02: #073642,
+        base03: #002B36,
+        green: #859900,
+        cyan: #2AA198,
+        blue: #268BD2,
+        violet: #6C71C4,
+        magenta: #D33682,
+        red: #DC322F,
+        orange: #CB4B16,
+        yellow: #B58900
+);
 
 @include add-foundation-colors;
 
@@ -141,11 +159,11 @@ $header-small-font-color: $medium-gray;
 $paragraph-lineheight: 1.6;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
-$code-color: $black;
+$code-color: map_get($solarized-light-palette, base00);
 $code-font-family: $font-family-monospace;
 $code-font-weight: $global-weight-normal;
-$code-background: $light-gray;
-$code-border: 1px solid $medium-gray;
+$code-background: map_get($solarized-light-palette, base3);
+$code-border: 0 solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
 $anchor-color: map_get($foundation-palette, anchor);
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
