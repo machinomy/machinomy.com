@@ -3,8 +3,8 @@
   gather_facts: True
 
   vars:
-    nodejs_version: "5"
-    debian_repo_version: "5.x"
+    nodejs_version: "6"
+    debian_repo_version: "6.x"
     site_name: machinomy.com
     site_dir: "/srv/www/{{site_name}}"
 
@@ -62,7 +62,7 @@
 
     - name: Git
       git:
-        repo: git@github.com:machinomy/machinomy.com.git
+        repo: ssh://git@github.com/machinomy/machinomy.com.git
         dest: "{{site_dir}}"
         accept_hostkey: yes
 
