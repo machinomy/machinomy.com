@@ -13,14 +13,17 @@
 
         <p>
             Paying over HTTP for service implies there is a buyer and a seller. As a simplification for future developments,
-            buyer is called <i>sender</i>, and seller is named <i>receiver</i> below.
+            buyer is called <i>sender</i>, and seller is named <i>receiver</i> in code.
+        </p>
+        <p class="text-center">
+            <img src="{{root}}assets/img/documentation/getting-started/buyer_seller.svg" width="40%" />
         </p>
 
         <h2>Installation</h2>
-        <pre><code>$ npm install -g machinomy</code></pre>
+        <pre><code class="nohighlight">$ npm install -g machinomy</code></pre>
         <p>
-            Then set it all up using your ethereum account. By default, machinomy uses
-            <a href="//blog.ethereum.org/2016/11/20/from-morden-to-ropsten/">Ropsten</a>, a current test network,
+            Then set it all up using your ethereum account. By default, machinomy uses a current test network
+            <a href="//blog.ethereum.org/2016/11/20/from-morden-to-ropsten/">Ropsten</a>
             to prevent erroneous expenditures. Console commands also assume
             you act on behalf of sender side.
         </p>
@@ -35,9 +38,99 @@
 
         <h2>Buy</h2>
         <p>
-            Now, after you set it up, start local geth instance. For now, machinomy is not itself an Ethereum node.
+            Now, after you set it up, start local geth instance on <code>http://localhost:8545</code>. For now, machinomy is not itself an Ethereum node.
             Then, issue <code>machinomy buy</code> command:
         </p>
+        <script type="text/javascript" src="https://asciinema.org/a/c8vq6vc2qtpnp1u3ogiwz3ow4.js" data-theme="solarized-light" id="asciicast-c8vq6vc2qtpnp1u3ogiwz3ow4" async></script>
+        <p>
+            This goes to the server, gets the price and sends the money required.
+            By the way it finds out there is no payment channel available, so it also opens a channel to send the money.
+            For now, it suffices to say a payment channel is a way to securely transfer money off-chain.
+            Details on that matter will be published later.
+        </p>
+        <p>
+            To override a password set in configuration file pass it in environment variable
+            <code>MACHINOMY_SENDER_PASSWORD</code>. Optionally, you could enable <code>verbose</code> or <code>debug</code>
+            logging:
+        </p>
+        <pre><code class="nohighlight">$ MACHINOMY_SENDER_PASSWORD=RealPa$$w0rd \
+LOG_LEVEL=verbose \
+machinomy buy http://playground.machinomy.com/hello</code></pre>
+        <p>
+            A developer is free to use the underlying API. The console command serves illustrative purpose only.
+            Below is a javascript file, that does the same as the command above:
+        </p>
+        <pre><code class="javascript">"use strict";
+
+const machinomy = require("machinomy");
+const uri = "http://playground.machinomy.com/hello";
+
+const settings = machinomy.configuration.sender();
+machinomy.buy(uri, settings.account, settings.password, function (err, contents) {
+    if (err) throw err;
+    console.log(contents);
+});</code></pre>
+
+        <h2>Sell</h2>
+        <p>
+            Machinomy integrates with <a href="//expressjs.com/">Express</a> providing a middleware to sell a service over HTTP.
+            One needs to add few lines of code to a conventional Express application to accept payments.
+        </p>
+        <pre><code class="javascript">"use strict";
+
+const express    = require("express"),
+      bodyParser = require("body-parser"),
+      machinomy  = require("machinomy");
+
+const BASE = "http://localhost:3000";
+
+const settings = machinomy.configuration.receiver();
+let paywall = new machinomy.Paywall(settings.account, BASE);
+
+let app = express();
+app.use(bodyParser.json());
+app.use(paywall.middleware());
+
+app.get("/hello", paywall.guard(1000, function (req, res) {
+    res.write("Have just received 1000 wei.\n");
+    res.end("Hello, meat world!");
+}));
+
+app.listen(8080, function(_) {
+    console.log(`Waiting at ${BASE}/hello ...`);
+});
+</code></pre>
+        <p>
+            The middleware intercepts <code>Payment</code> header, and checks its contents (=token) against
+            open channels. If the token is invalid or absent, the client is redirected to a payment gateway
+            page and asked a specific amount to pay. Then the client sends the payment to the gateway,
+            and gets back to the original URL, now with the token. The content is returned, as there is no middleware.
+        </p>
+        <p class="text-center">
+            <img src="{{root}}assets/img/documentation/getting-started/channel_overview.svg" width="80%" />
+        </p>
+        <p>
+            The middleware depends on geth instance running on <code>http://localhost:8545</code>.
+            Also you need to provide details on account to accept payments to. To do that, run <code>setup</code>
+            command for receiver side:
+        </p>
+        <pre><code class="nohighlight">$ machinomy setup --namespace receiver</code></pre>
+        <p>
+            Otherwise the code runs on any machine just like any other NodeJS code, and is
+            invisible to your application.
+        </p>
+        <pre><code class="nohighlight">$ node server.js</code></pre>
+        <p>
+            Instead of putting a password in a configuration file in clear text, one could set it via environment
+            variable <code>MACHINOMY_RECEIVER_PASSWORD</code>. Log level is adjusted via environment variable too.
+        </p>
+        <pre><code class="nohighlight">$ MACHINOMY_RECEIVER_PASSWORD=rece1verPa$$w0rd \
+LOG_LEVEL=verbose \
+node server.js</code></pre>
+        <p>
+            You could test the server code above on your local machine by buying a service.
+        </p>
+        <script type="text/javascript" src="https://asciinema.org/a/4r73cyxqlz6jysow1lioqpgl7.js" data-theme="solarized-light" id="asciicast-4r73cyxqlz6jysow1lioqpgl7" async></script>
     </div>
     <div class="large-2 column">&nbsp;</div>
 </section>

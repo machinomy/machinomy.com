@@ -27,6 +27,7 @@ PATHS:
   sass:
     - "bower_components/foundation-sites/scss"
     - "bower_components/motion-ui/src"
+    - "bower_components/highlightjs/styles"
   # Paths to JavaScript libraries, which are combined into one file
   javascript:
     # Libraries required by Foundation
@@ -35,6 +36,8 @@ PATHS:
     # Core Foundation files
     - "bower_components/foundation-sites/js/foundation.core.js"
     - "bower_components/foundation-sites/js/foundation.util.*.js"
+    # Highlight.js
+    - "bower_components/highlightjs/highlight.pack.js"
     # Individual Foundation components
     # If you aren't using a component, just remove it from the list
     #- "bower_components/foundation-sites/js/foundation.abide.js"
