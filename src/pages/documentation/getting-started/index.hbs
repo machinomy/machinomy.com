@@ -19,7 +19,7 @@
             <img src="{{root}}assets/img/documentation/getting-started/buyer_seller.svg" width="40%" />
         </p>
 
-        <h2>Installation</h2>
+        <h2>Install</h2>
         <pre><code class="nohighlight">$ npm install -g machinomy</code></pre>
         <p>
             Then set it all up using your ethereum account. By default, machinomy uses a current test network
@@ -131,6 +131,24 @@ node server.js</code></pre>
             You could test the server code above on your local machine by buying a service.
         </p>
         <script type="text/javascript" src="https://asciinema.org/a/4r73cyxqlz6jysow1lioqpgl7.js" data-theme="solarized-light" id="asciicast-4r73cyxqlz6jysow1lioqpgl7" async></script>
+
+        <h2>Settle</h2>
+        <p>
+            Payment channel transfers money off chain. At the end of the day a seller of the service would like
+            to get the money, that is to move the money on chain or settle the channel. Seller of the service,
+            that is receiver of the money, could settle the channel right away. There is a caveat. While settling
+            the receiver sends a transaction to Ethereum network, and it costs some gas/ether. Currently, the cost
+            of the settling transaction is under 0.002 Ether (65510 gas). Make sure you have
+            at least 0.002 Ether on the receiver’s account.
+        </p>
+        <script type="text/javascript" src="https://asciinema.org/a/b7au5s8u64jwjzla83g9hgxjp.js" data-theme="solarized-light" id="asciicast-b7au5s8u64jwjzla83g9hgxjp" async></script>
+        <p>
+            Sender <em>initiates</em> channel setting. This signals the seller to settle the channel.
+            The sender can not settle the channel right away. It would allow her to cheat by settling on a value less than
+            sent one. The sender initiates channel settling by the same <code>machinomy close</code> command. The get the funds
+            a receiver is expected to finish settle on her side.
+        </p>
+        <script type="text/javascript" src="https://asciinema.org/a/afpkbdasj78bz0i0kaj5hr2fx.js" data-theme="solarized-light" id="asciicast-afpkbdasj78bz0i0kaj5hr2fx" async></script>
     </div>
     <div class="large-2 column">&nbsp;</div>
 </section>
