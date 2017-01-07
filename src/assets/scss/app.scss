@@ -61,7 +61,7 @@
   color: white;
 }
 
-.expaned.top-bar {
+.expanded.top-bar {
   padding: 0;
   background: map_get($foundation-palette, primary);
 }
@@ -86,17 +86,29 @@
   ul.menu {
     background: transparent;
     float: left;
+    margin-left: -1rem;
 
     li>a {
       line-height: $line-height;
-      padding: 2px 2rem 0 0;
-      margin-bottom: -2px;
+      padding: 2px 1rem 0 1rem;
       color: white;
     }
     @media (max-width: map-get($breakpoints, medium)) {
       li>a {
         line-height: 2.5;
         padding-left: $topbar-padding;
+      }
+    }
+
+    &.nav {
+      li.active {
+        $border-height: 0.5rem;
+        a {
+          background: transparent;
+          margin-bottom: -$border-height;
+        }
+        border-bottom: $border-height solid #fff; //map-get($foundation-palette, dark-primary);
+        margin-bottom: -$border-height;
       }
     }
 
