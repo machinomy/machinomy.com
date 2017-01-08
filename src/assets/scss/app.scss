@@ -225,6 +225,9 @@ section.row {
       height: 120px;
     }
   }
+  &.continuation {
+    margin-top: 0;
+  }
 }
 
 .bigger-text {
@@ -291,6 +294,12 @@ ul.menu {
       width: 24px;
       height: 24px;
     }
+  }
+}
+
+h1 {
+  small.subheader {
+    display: block;
   }
 }
 
