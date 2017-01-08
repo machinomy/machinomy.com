@@ -315,7 +315,7 @@ h1 {
 }
 
 .documentation-shelf {
-  .documentation-collection {
+  .blog-row, .documentation-collection {
     .collection-title {
       h1 {
         font-size: small;
@@ -331,7 +331,7 @@ h1 {
       padding-top: $section-row-margin-top;
     }
   }
-  .documentation-collection:first-child {
+  .blog-row, .documentation-collection:first-child {
     .collection-title, .content {
       border: none;
       padding-top: 0;
