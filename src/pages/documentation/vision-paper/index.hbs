@@ -9,7 +9,14 @@
     <div class="large-2 column"><span data-li-id="documentation-li" class="data-nav-li">&nbsp;</span></div>
 </section>
 <section class="row continuation">
-    <div class="large-4 column">&nbsp;</div>
+    <div class="large-4 column left-margin">
+        <a href="{{root}}assets/downloads/Vision Paper.pdf" class="download-pdf-left">
+            <figure>
+                <img src="{{root}}assets/img/pdf_icon_white.svg" alt="PDF Icon, created by Linseed Studio from the Noun Project" />
+                <figcaption>Download the Paper</figcaption>
+            </figure>
+        </a>
+    </div>
     <div class="large-6 column content">
         <p>
             Coined by Kevin Ashton in 1999 Internet of things gains adoption as more smart things enter the market.
@@ -114,7 +121,7 @@
             <figcaption>Communication models: HTTP for Request-Response, and MQTT for Publish-Subscribe</figcaption>
         </figure>
         <p>
-            Both of the communication models are important, as specifications for industrial applications show. One could not use them both simultaneously though. The protocols support just one model each. XMPP is suitable but too heavyweight for embedded applications.
+            Both communication models are important, as specifications for industrial applications show. One could not use them both simultaneously though. The protocols support just one model each. XMPP is suitable but too heavyweight for embedded applications.
         </p>
         <p>
             Another problem appears when doing peer-to-peer interaction between the devices in comparison to device-cloud interaction. Use of the mentioned protocols in the setting lead to an obvious Denial of Service attack. Device identifier here is IP-address. A malefactor could send there garbage data and overloads the device up to its death.

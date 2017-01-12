@@ -327,6 +327,23 @@ h1 {
   }
 }
 
+.left-margin {
+  a.download-pdf-left {
+    float: right;
+    display: block;
+    background: $anchor-color;
+    color: #fff;
+    text-decoration: underline;
+    text-align: center;
+    figure {
+      margin: $paragraph-margin-bottom;
+      figcaption {
+        margin-top: $paragraph-margin-bottom;
+      }
+    }
+  }
+}
+
 .documentation-shelf {
   .blog-row, .documentation-collection {
     .collection-title {
