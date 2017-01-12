@@ -27,13 +27,19 @@
             on low power devices connected to each other. From a user’s standpoint a group of the devices is a united
             computer blended into an environment. The paper was a success both in academic and industrial communities.
             Lack of ubiquitous wireless connectivity prevented the vision to be realized.
-            The closes approximation was so called M2M (machine-to-machine) systems. Here a lot of identical devices
+        </p>
+        <p>
+            The closest approximation was so called M2M (machine-to-machine) systems. Here a lot of identical devices
             communicate to a central server via cellular network. The system lowered costs on remote control and
             monitoring. Contrary to the original vision it allowed devices communicate only to the server.
             There were no direct device-to-device interactions. That limited applications to control and monitoring
             inside a single enterprise only.
         </p>
-        <p>FIXME PIC</p>
+        <figure>
+            <img src="{{root}}assets/img/documentation/vision_paper/m2m.svg" alt="Typical M2M system architecture" />
+            <footer><small>Cloud icon created by NOPIXEL from the Noun Project</small></footer>
+            <figcaption>Typical M2M system architecture</figcaption>
+        </figure>
         <p>
             In 1999 Kevin Ashton get the idea back into the discourse while working on radio frequency
             identification methods. He invented the name “Internet of Things”. The researcher proposed
@@ -48,7 +54,21 @@
             into an easy occupation. All of that drastically lowered the entry point to the industry. Boom of the smart
             things we are going to observe in the next few years.
         </p>
-        <p>FIXME PIC The modern Internet of Things architecture is an evolution over M2M.</p>
+        <figure>
+            <img src="{{root}}assets/img/documentation/vision_paper/iot_architecture.svg" alt="Typical M2M system architecture" />
+            <footer>
+                <small>
+                    Cloud by Aya Sofya,
+                    Heart Health by Jamison Wieser,
+                    Autonomous car by Guilhem,
+                    Buildings by Delwar Hossain,
+                    Factory by Arthur Shlain,
+                    Plant by iconsphere.
+                    All from the Noun Project.
+                </small>
+            </footer>
+            <figcaption>Modern Internet of Things architecture is an evolution over M2M.</figcaption>
+        </figure>
         <p>
             Heterogeneous devices communicate to a central server, also known as a cloud, via the Internet.
             The main difference point is using standard transport protocols between the device and the server.
@@ -89,7 +109,10 @@
         <p>
             AMQP, MQTT, DDS use a “publish-subscribe” model. A client declares what it likes to receive after being connected to a server. The server dispatches or publishes updates to the interested clients.
         </p>
-        <p>FIXME PIC</p>
+        <figure>
+            <img src="{{root}}assets/img/documentation/vision_paper/http_mqtt.svg" alt="Communication models: Request-Response, and Publish-Subscribe" />
+            <figcaption>Communication models: HTTP for Request-Response, and MQTT for Publish-Subscribe</figcaption>
+        </figure>
         <p>
             Both of the communication models are important, as specifications for industrial applications show. One could not use them both simultaneously though. The protocols support just one model each. XMPP is suitable but too heavyweight for embedded applications.
         </p>
@@ -176,9 +199,12 @@
             Machinomy uses cryptocurrency for payments. It runs in a completely distributed fashion. It does not allow anyone to transfer money without the explicit order of the owner. In this respect, cryptocurrency is similar to cash. In addition to safety, cryptocurrency is a cheaper means of transferring money. Fee for a relatively large payment in cryptocurrency is a few cents compared to 30 cents for a bank transaction.
         </p>
         <p>
-            On top of this we have built a so-called payment channels, with a commission of about 5 cents per channel. This is a special type of money transfer extended in time. The channel can be opened for an arbitrarily long time. Inside the channel, you can make unlimited number of transactions, including microtransactions as low as 0.000004 USD.
+            On top of this we have built a so-called payment channels, with a commission of about 5 cents per channel. This is a special type of money transfer extended in time. The channel can be opened for an arbitrarily long time. Inside the channel, you can make unlimited number of transactions, including microtransactions as low as 0.00000001 USD.
         </p>
-        <p>FIXME PIC</p>
+        <figure>
+            <img src="{{root}}assets/img/documentation/vision_paper/payment_channel.svg" alt="Payment channel" />
+            <figcaption>Payment Channel</figcaption>
+        </figure>
         <p>
             With micropayments a device buys extra computing power by itself. Thus, it is untied from the cloud and receives freedom to communicate with neighboring devices on an economic basis.
         </p>

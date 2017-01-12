@@ -312,6 +312,19 @@ h1 {
   a {
     text-decoration: underline;
   }
+  figure {
+    margin-top: $paragraph-margin-bottom*2;
+    footer>small {
+      display: none;
+    }
+    figcaption {
+      text-align: center;
+      font-size: smaller;
+      color: map_get($foundation-palette, secondary);
+      margin-top: $paragraph-margin-bottom;
+      margin-bottom: $paragraph-margin-bottom*2;
+    }
+  }
 }
 
 .documentation-shelf {
