@@ -51,6 +51,11 @@
       become: yes
       become_user: root
 
+    - name: Install Node.js
+      command: npm install -g bower
+      become: yes
+      become_user: root
+
     - name: Make /srv/www/machinomy.com folder
       file:
         path: "{{site_dir}}"
@@ -68,6 +73,11 @@
 
     - name: Install npm dependencies
       command: npm install
+      args:
+        chdir: "{{site_dir}}"
+
+    - name: Install bower dependencies
+      command: bower install
       args:
         chdir: "{{site_dir}}"
 
