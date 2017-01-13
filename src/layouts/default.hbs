@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <script src="https://use.typekit.net/aus3xwg.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machinomy – distributed platform for IoT micropayments</title>
+    <link rel="stylesheet" href="{{root}}assets/css/app.css">
+    <meta property="og:title" content="Machinomy – distributed platform for IoT micropayments" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="//machinomy.com"/>
+    <meta property="og:image" content="//machinomy.com/images/robot_on_pink.png" />
+    <meta property="og:description" content="We make autonomous devices pay to each other no matter what. Build secure and sustainable IoT systems based on distributed communication, blockchain, and cryptocurrency" />
+</head>
+<body>
+
+<div class="expanded top-bar">
+    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+        <div class="title-bar-title logo">
+            <a href="/">
+                Machinomy
+            </a>
+        </div>
+        <div class="title-bar-right">
+            <button class="menu-icon" type="button" data-toggle></button>
+        </div>
+    </div>
+
+    <div id="main-menu">
+        <div class="row">
+            <div class="medium-4 column text-right logo hide-for-small-only">
+                <a href="/">Machinomy</a>
+            </div>
+            <div class="medium-6 column">
+                <ul class="menu nav" data-dropdown-menu>
+                    <li><a href="{{ urls.gitter }}">Community</a></li>
+                    <li id="documentation-li"><a href="/documentation">Documentation</a></li>
+                    <li id="blog-li"><a href="/blog">Blog</a></li>
+                </ul>
+
+                <ul class="community menu show-for-large">
+                    <li><a href="{{ urls.twitter }}"><img class="icon-small" src="/assets/img/social/twitter-white.svg" /></a></li>
+                    <li><a href="{{ urls.gitter }}"><img class="icon-small" src="/assets/img/social/gitter-white.svg" /></a></li>
+                    <li><a href="{{ urls.github.machinomy }}"><img class="icon-small" src="/assets/img/social/github-white.svg" /></a></li>
+                </ul>
+            </div>
+            <div class="medium-2 column">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> body}}
+
+<div class="footer">
+    <div class="row">
+        <div class="large-2 column">&nbsp;</div>
+        <div class="large-2 column get-in-touch">
+            &nbsp;
+        </div>
+        <div class="large-6 column text-right">
+            <ul class="community menu">
+                <li><a href="{{ urls.twitter }}"><img class="icon-small" src="{{root}}assets/img/social/twitter-white.svg" />Follow</a></li>
+                <li><a href="{{ urls.gitter }}"><img class="icon-small" src="{{root}}assets/img/social/gitter-white.svg" />Discuss</a></li>
+                {{!-- <li><a href="#fixme"><img src="{{root}}assets/img/social/discourse.png" width="24" height="24" />Discuss</a></li> --}}
+                <li><a href="{{ urls.github.machinomy }}"><img class="icon-small" src="{{root}}assets/img/social/github-white.svg" />Contribute</a></li>
+            </ul>
+            <hr />
+            <ul class="texting menu">
+                <li><a href="/documentation">Documentation</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+        <div class="large-2 column">
+            &nbsp;
+        </div>
+    </div>
+</div>
+
+<script src="{{root}}assets/js/app.js"></script>
+{{> ga}}
+</body>
+</html>

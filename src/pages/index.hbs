@@ -1,0 +1,134 @@
+<div class="row" id="landing-main">
+    <div class="large-4 column text-right landing-title">
+        <h2>
+            Make your device
+            <div class="earn-or-pay">
+                <span class="toggle" data-toggle="earn">earn</span> or
+                <span class="toggle active" data-toggle="pay">pay</span>
+            </div>
+            <div class="action-button">
+                <a href="/documentation/getting-started">Get Started ⟩⟩⟩</a>
+            </div>
+        </h2>
+    </div>
+    <div class="large-6 column">
+        <div class="landing-code">
+            <div class="window">
+                <div class="toolbar">
+                    <i class="btn-close"></i>
+                    <i class="btn-hide"></i>
+                    <i class="btn-grow"></i>
+                    <div class="title">Terminal</div>
+                </div>
+                <div class="window-content">
+                    <div class="example example-pay">
+                        <pre>
+$ npm install machinomy
+$ machinomy buy http://machinomy.com/test
+<strong>Have just received 1000 wei.</strong>
+<strong>Hello, meat world!</strong>
+$ _
+                        </pre>
+                    </div>
+                    <div class="example example-earn hide">
+                        <pre>
+$ npm install machinomy
+$ cat server.js
+<strong>...
+app.get("/test", paywall.guard(1000, (req, res) => {
+    res.write("Have just received 1000 wei.\n");
+    res.end("Hello, meat world!");
+}));
+
+app.listen(3000, () => {
+    console.log("Serving at http://localhost:3000/test");
+});</strong>
+$ node server.js
+<strong>Serving at http://localhost:3000/test</strong>
+_</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="large-2 column">
+        &nbsp;
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-4 column">&nbsp;</div>
+    <div class="large-6 column bigger-text">
+        <p>
+            Machinomy allows the devices to pay and earn money. See your car paying for gas, and for a weather report, and for a regular maintenance. Take a look at your fridge. It is going to buy fresh vegetables while you drive. Allow the devices to care about you. Allow them to transfer money in autonomous and secure way.
+        </p>
+    </div>
+    <div class="large-2 column">&nbsp;</div>
+</div>
+
+<section class="row">
+    <div class="large-4 column text-right">
+        <h2>Benefits</h2>
+    </div>
+    <div class="large-3 column">
+        <div class="row">
+            <div class="large-12 column benefits">
+                <h4 class="title">for people<img src="/assets/img/human.svg" /></h4>
+                <p>Teach smart devices to discover each other, negotiate and trade resources.</p>
+                <p>Join us in the quest for a sentient environment.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 column benefits">
+                <h4 class="title">machines<img src="/assets/img/robot.svg" /></h4>
+                <p>Move mundane computations away: safely offload it to the nearest capable machine.</p>
+
+                <p>Find the cheapest way to pass a Turing test in a neighbourhood. Nobody knows you have been assisted.</p>
+            </div>
+        </div>
+    </div>
+    <div class="large-3 column benefits">
+        <h4 class="title">companies <img src="/assets/img/factory.svg" /></h4>
+        <p>Trust swarm of devices to buy computing power, network traffic and API access.</p>
+        <p>Make your central servers work on more important tasks.</p>
+        <p>Decentralised infrastructure scales better.</p>
+    </div>
+    <div class="large-2 column">
+        &nbsp;
+    </div>
+</section>
+
+<section class="row text">
+    <div class="large-4 column text-right">
+        <h2>Features</h2>
+    </div>
+    <div class="large-6 column">
+        <p>
+            We see the machine economy coming. The code we have now is a mere attempt to explore it, and clear things up. Treat it like the very first word a child says. It could be the least meaningful word overall, yet the most important one for the child development.
+        </p>
+        <div class="row features">
+            <div class="large-6 column text-center">
+                <img src="{{root}}assets/img/clocks.svg">
+                <p>Nearly zero fees</p>
+            </div>
+            <div class="large-6 column text-center">
+                <img src="{{root}}assets/img/moneybag.svg">
+                <p>Immediate payments</p>
+            </div>
+        </div>
+        <div class="row features">
+            <div class="large-6 column text-center">
+                <img src="{{root}}assets/img/heart.svg">
+                <p>Simple API</p>
+            </div>
+            <div class="large-6 column text-center">
+                <img src="{{root}}assets/img/lamp.svg">
+                <p>Any device</p>
+            </div>
+        </div>
+        <p>
+            Go to <a href="/documentation">Documentation</a> to learn more. <a href="/documentation/getting-started">Getting Started</a> tutorial will show you how to use the library to say the very first word in the machine economy.
+        </p>
+    </div>
+    <div class="large-2 column">&nbsp;</div>
+</section>

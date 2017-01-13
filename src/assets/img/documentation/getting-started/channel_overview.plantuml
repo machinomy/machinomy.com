@@ -1,0 +1,33 @@
+@startuml
+scale 570 width
+skinparam monochrome true
+skinparam defaultFontName "PT Sans"
+hide footbox
+
+participant Ethereum
+participant Sender
+participant Receiver
+participant Gateway
+
+box "Client"
+    participant Sender
+end box
+
+box "Server"
+    participant Receiver
+    participant Gateway
+end box
+
+Sender -> Receiver: Request service
+Receiver --> Sender: Payment credentials
+alt no payment channel
+    Sender -> Ethereum : Open payment channel
+    Ethereum --> Sender : Payment Channel ID
+end
+
+Sender -> Gateway: Payment
+Gateway --> Sender: Token
+
+Sender -> Receiver : Request Service, send Token
+Receiver --> Sender : Provide service
+@enduml

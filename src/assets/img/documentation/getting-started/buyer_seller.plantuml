@@ -1,0 +1,10 @@
+@startuml
+scale 570 width
+skinparam monochrome true
+skinparam defaultFontName "PT Sans"
+hide footbox
+actor "Buyer\n**Sender**" as Buyer 
+actor "Seller\n**Receiver**" as Seller 
+Buyer -> Seller: Send money
+Seller --> Buyer: Provide service
+@enduml
