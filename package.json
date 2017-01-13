@@ -41,7 +41,9 @@
     "url": "https://github.com/machinomy/machinomy.com/issues"
   },
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   },
   "private": true
 }

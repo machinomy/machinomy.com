@@ -325,6 +325,15 @@ h1 {
       margin-bottom: $paragraph-margin-bottom*2;
     }
   }
+  .blog-entry-link {
+    p {
+      a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+    }
+  }
 }
 
 .left-margin {
