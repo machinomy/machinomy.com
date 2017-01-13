@@ -69,6 +69,7 @@
       git:
         repo: ssh://git@github.com/machinomy/machinomy.com.git
         dest: "{{site_dir}}"
+        update: yes
         accept_hostkey: yes
 
     - name: Install npm dependencies
