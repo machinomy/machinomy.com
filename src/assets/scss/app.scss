@@ -66,6 +66,15 @@
   background: map_get($foundation-palette, primary);
 }
 
+.logo a{
+  font-family: 'PT Mono', monospace;
+  font-size: 16pt;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
 #main-menu {
   $line-height: 87px;
 
@@ -87,6 +96,12 @@
     background: transparent;
     float: left;
     margin-left: -1rem;
+    @media (max-width: map-get($breakpoints, medium)) {
+      & {
+        margin-left: -$topbar-padding;
+      }
+    }
+
 
     li>a {
       line-height: $line-height;
@@ -95,7 +110,8 @@
     }
     @media (max-width: map-get($breakpoints, medium)) {
       li>a {
-        line-height: 2.5;
+        margin-top: $topbar-padding;
+        line-height: 1;
         padding-left: $topbar-padding;
       }
     }
@@ -127,14 +143,28 @@
 
   .landing-title {
     margin-top: 1.5rem;
+    text-align: right;
+
+    @media (max-width: map-get($breakpoints, large)) {
+      & {
+        text-align: center;
+      }
+    }
 
     h2 {
       line-height: 1.5;
+
+      @media (max-width: map-get($breakpoints, large)) {
+        .earn-or-pay {
+          display: inline;
+        }
+      }
     }
 
     .action-button {
       display: block;
       margin-top: 1.5rem;
+      margin-bottom: 3rem;
       a {
         font-size: 40%;
         color: white;
@@ -165,7 +195,6 @@
     border: 1px solid #ccc;
 
     font-family: 'PT Mono', monospace;
-    min-height: 24rem;
 
     .toolbar {
       background: #f0f0f0;
@@ -208,6 +237,7 @@
       padding: 0.5em;
       margin: 0;
       font-family: $font-family-monospace;
+      min-height: 22rem;
     }
   }
 }
@@ -336,8 +366,17 @@ h1 {
   }
 }
 
-.left-margin {
-  a.download-pdf-left {
+.marginalia-left {
+  text-align: right;
+
+  @media (max-width: map-get($breakpoints, large)) {
+    & {
+      text-align: left;
+    }
+  }
+
+
+  a.download-pdf {
     float: right;
     display: block;
     background: $anchor-color;
