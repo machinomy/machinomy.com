@@ -1,15 +1,47 @@
+# Vanilla HTTP
 server {
-  listen      *:80;
+    listen      *:80 default_server;
+    listen [::]:80 default_server;
 
-  server_name machinomy.com;
-  root        {{site_dir}}/dist;
+    server_name {{site_name}} www.{{site_name}};
+    return 301 https://$server_name$request_uri;
+}
 
-  access_log  /var/log/nginx/{{site_name}}.log;
+# SSL
+server {
+    listen 443 ssl http2 default_server;
+    listen [::]:443 ssl http2 default_server;
 
-  client_max_body_size 10000k;
+    root        {{site_dir}}/dist;
 
-  location / {
-    root      {{site_dir}}/dist;
-    index     index.html;
-  }
+    access_log  /var/log/nginx/{{site_name}}.log;
+
+    client_max_body_size 10000k;
+
+    location / {
+        root      {{site_dir}}/dist;
+        index     index.html;
+    }
+
+    ssl_certificate /etc/letsencrypt/live/{{site_name}}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/{{site_name}}/privkey.pem;
+
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH";
+    ssl_ecdh_curve secp384r1;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_tickets off;
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    resolver 8.8.8.8 8.8.4.4 valid=300s;
+    resolver_timeout 5s;
+    # Disable preloading HSTS for now.  You can use the commented out header line that includes
+    # the "preload" directive if you understand the implications.
+    #add_header Strict-Transport-Security "max-age=63072000; includeSubdomains; preload";
+    add_header Strict-Transport-Security "max-age=63072000; includeSubdomains";
+    add_header X-Frame-Options DENY;
+    add_header X-Content-Type-Options nosniff;
+
+    ssl_dhparam /etc/ssl/certs/dhparam.pem;
 }

@@ -7,6 +7,7 @@
     debian_repo_version: "6.x"
     site_name: machinomy.com
     site_dir: "/srv/www/{{site_name}}"
+    letsencrypt_email: sergey.ukustov@machinomy.com
 
   tasks:
 
@@ -51,7 +52,7 @@
       become: yes
       become_user: root
 
-    - name: Install Node.js
+    - name: Install Bower
       command: npm install -g bower
       become: yes
       become_user: root
@@ -71,21 +72,25 @@
         dest: "{{site_dir}}"
         update: yes
         accept_hostkey: yes
+      register: repository
 
     - name: Install npm dependencies
       command: npm install
       args:
         chdir: "{{site_dir}}"
+      when: repository.before != repository.after
 
     - name: Install bower dependencies
       command: bower install
       args:
         chdir: "{{site_dir}}"
+      when: repository.before != repository.after
 
     - name: Build static files
       command: npm run build
       args:
         chdir: "{{site_dir}}"
+      when: repository.before != repository.after
 
     - name: Install nginx
       apt:
@@ -93,6 +98,22 @@
         state: installed
       become: yes
       become_user: root
+
+    - name: Install Let's Encrypt package
+      apt:
+        pkg: letsencrypt
+        state: installed
+      become: yes
+
+    - name: Set up Let's Encrypt
+      command: "letsencrypt certonly --webroot --keep-until-expiring --agree-tos --email {{ letsencrypt_email }} -w {{ site_dir }}/dist -d {{ site_name }} -d www.{{ site_name }}"
+      become: yes
+
+    - name: Set up DH params
+      command: openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+      args:
+        creates: /etc/ssl/certs/dhparam.pem
+      become: yes
 
     - name: Deactivate the default nginx site
       file:
