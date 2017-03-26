@@ -416,3 +416,38 @@ h1 {
     }
   }
 }
+
+span.currency-conversion {
+  border-bottom: 1pt dashed $helptext-color;
+}
+
+.dropdown-pane.currency-conversion-dropdown {
+  width: auto;
+  max-width: $dropdown-width;
+  padding: 0.5rem;
+  border: none;
+  background: rgba(54, 54, 54, .8);
+  color: white;
+}
+
+nav.sticky ul.sticky {
+  margin: 0;
+  padding: 0;
+  font-size: smaller;
+  li {
+    list-style-type: none;
+    &.title a {
+      font-size: larger;
+      color: $black;
+      font-weight: bolder;
+    }
+    a {
+      display: block;
+      padding: 0 0.4rem;
+    }
+    a.active {
+      background: $anchor-color;
+      color: $white;
+    }
+  }
+}

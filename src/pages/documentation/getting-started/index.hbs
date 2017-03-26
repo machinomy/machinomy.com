@@ -1,7 +1,7 @@
 <section class="row">
     <div class="large-4 column">&nbsp;</div>
-    <div class="large-6 column content">
-        <h1>Getting Started</h1>
+    <div class="large-6 column content" id="column-content">
+        <h1 data-magellan-target="title" id="title">Getting Started</h1>
         <p>
             An idea behind Machinomy project is to allow any device to pay another
             device a minuscule amount of money over the internet. In short: to provide a viable means of exchange
@@ -19,7 +19,7 @@
             <img src="{{root}}assets/img/documentation/getting-started/buyer_seller.svg" width="40%" />
         </p>
 
-        <h2>Install</h2>
+        <h2 data-magellan-target="install" id="install">Install</h2>
         <pre><code class="nohighlight">$ npm install -g machinomy</code></pre>
         <p>
             Then set it all up using your ethereum account. By default, machinomy uses a current test network
@@ -36,7 +36,7 @@
             You could override any password provided here using environment variable, as will be shown below.
         </p>
 
-        <h2>Buy</h2>
+        <h2 data-magellan-target="buy" id="buy">Buy</h2>
         <p>
             Now, after you set it up, start local geth instance on <code>http://localhost:8545</code>. For now, machinomy is not itself an Ethereum node.
             Then, issue <code>machinomy buy</code> command:
@@ -71,7 +71,7 @@ machinomy.buy(uri, settings.account, settings.password, function (err, contents)
     console.log(contents);
 });</code></pre>
 
-        <h2>Sell</h2>
+        <h2 data-magellan-target="sell" id="sell">Sell</h2>
         <p>
             Machinomy integrates with <a href="//expressjs.com/">Express</a> providing a middleware to sell a service over HTTP.
             One needs to add few lines of code to a conventional Express application to accept payments.
@@ -132,7 +132,7 @@ node server.js</code></pre>
         </p>
         <script type="text/javascript" src="https://asciinema.org/a/4r73cyxqlz6jysow1lioqpgl7.js" data-theme="solarized-light" id="asciicast-4r73cyxqlz6jysow1lioqpgl7" async></script>
 
-        <h2>Settle</h2>
+        <h2 data-magellan-target="settle" id="settle">Settle</h2>
         <p>
             Payment channel transfers money off chain. At the end of the day a seller of the service would like
             to get the money, that is to move the money on chain or settle the channel. Seller of the service,
@@ -150,7 +150,7 @@ node server.js</code></pre>
         </p>
         <script type="text/javascript" src="https://asciinema.org/a/afpkbdasj78bz0i0kaj5hr2fx.js" data-theme="solarized-light" id="asciicast-afpkbdasj78bz0i0kaj5hr2fx" async></script>
 
-        <h2>Next Step</h2>
+        <h2 data-magellan-target="next-steps" id="next-steps">Next Steps</h2>
         <p>
             Now play and build something. What you can do with micropayments is the most interesting thing now.
             Few ideas to foster your imagination:
@@ -167,5 +167,17 @@ node server.js</code></pre>
             and follow on <a href="{{ urls.twitter}}">Twitter</a> for updates.
         </p>
     </div>
-    <div class="large-2 column"><span data-li-id="documentation-li" class="data-nav-li">&nbsp;</span></div>
+    <div class="large-2 column" data-sticky-container>
+        <nav class="columns sticky show-for-large" data-sticky data-anchor="column-content">
+            <ul class="sticky" data-magellan>
+                <li class="title"><a href="#title">Getting Started</a></li>
+                <li><a href="#install">Install</a></li>
+                <li><a href="#buy">Buy</a></li>
+                <li><a href="#sell">Sell</a></li>
+                <li><a href="#settle">Settle</a></li>
+                <li><a href="#next-steps">Next Steps</a></li>
+            </ul>
+        </nav>
+        <span data-li-id="documentation-li" class="data-nav-li">&nbsp;</span>
+    </div>
 </section>
