@@ -23,7 +23,7 @@ In order to deploy the web site, you have to
 
 After prerequisites are satisfied, put this in the console:
 
-    $ cd .devops/ansible
+    $ cd .devops/deployment
     $ ansible-playbook deploy.yml -i hosts --private-key=~/.ssh/ext
     
 and relax.

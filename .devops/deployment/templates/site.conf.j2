@@ -12,6 +12,8 @@ server {
     listen 443 ssl http2 default_server;
     listen [::]:443 ssl http2 default_server;
 
+    server_name {{site_name}} www.{{site_name}};
+
     root        {{site_dir}}/dist;
 
     access_log  /var/log/nginx/{{site_name}}.log;
