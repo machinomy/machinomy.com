@@ -11,51 +11,11 @@
 
   tasks:
 
-    - name: Ensure the system can use the HTTPS transport for APT
-      stat:
-        path: /usr/lib/apt/methods/https
-      register: apt_https_transport
+    - name: Install dependencies locally
+      local_action: "command yarn install"
 
-    - name: Install HTTPS transport for APT
-      apt:
-        pkg: apt-transport-https
-        state: installed
-      when: not apt_https_transport.stat.exists
-
-    - name: Import the NodeSource GPG key into apt
-      apt_key:
-        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-        state: present
-      become: yes
-      become_user: root
-
-    - name: Add NodeSource deb repository
-      apt_repository:
-        repo: 'deb https://deb.nodesource.com/node_{{ debian_repo_version }} {{ ansible_distribution_release }} main'
-        state: present
-      become: yes
-      become_user: root
-
-    - name: Add NodeSource deb-src repository
-      apt_repository:
-        repo: 'deb-src https://deb.nodesource.com/node_{{ debian_repo_version }} {{ ansible_distribution_release }} main'
-        state: present
-      become: yes
-      become_user: root
-
-    - name: Install Node.js
-      apt:
-        pkg:
-          - nodejs={{ nodejs_version }}*
-        state: installed
-        update_cache: yes
-      become: yes
-      become_user: root
-
-    - name: Install Bower
-      command: npm install -g bower
-      become: yes
-      become_user: root
+    - name: Build locally
+      local_action: "command yarn build"
 
     - name: Make /srv/www/machinomy.com folder
       file:
@@ -66,31 +26,10 @@
       become: yes
       become_user: root
 
-    - name: Git
-      git:
-        repo: ssh://git@github.com/machinomy/machinomy.com.git
+    - name: Copy files
+      synchronize:
+        src: ../../dist/
         dest: "{{site_dir}}"
-        update: yes
-        accept_hostkey: yes
-      register: repository
-
-    - name: Install npm dependencies
-      command: npm install
-      args:
-        chdir: "{{site_dir}}"
-      when: repository.before != repository.after
-
-    - name: Install bower dependencies
-      command: bower install
-      args:
-        chdir: "{{site_dir}}"
-      when: repository.before != repository.after
-
-    - name: Build static files
-      command: npm run build
-      args:
-        chdir: "{{site_dir}}"
-      when: repository.before != repository.after
 
     - name: Install nginx
       apt:

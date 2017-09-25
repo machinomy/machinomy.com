@@ -1,18 +1,19 @@
 # machinomy.com
+
 Machinomy official page.
 
 ## Develop
 
-    $ npm install
-    $ gulp serve
+    $ yarn install
+    $ yarn start
     # And go to http://localhost:4000
     
 ## Build
 
 Not necessary, actually, to do that. `gulp serve` rebuilds the website on any code change.
 
-    $ npm install
-    $ gulp build
+    $ yarn install
+    $ yarn build
     # Built website is in dist/
      
 ## Deploy
