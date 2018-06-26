@@ -15,7 +15,8 @@
     "gatsby-plugin-typescript": "^1.4.20",
     "prop-types": "^15.6.1",
     "react-emotion": "^9.2.4",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "ts-node": "^7.0.0"
   },
   "keywords": [
     "gatsby"

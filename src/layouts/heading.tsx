@@ -1,22 +1,22 @@
 import * as React from 'react'
-import FullLayout from '../components/Layout/FullLayout'
+import HeadingLayout from '../components/Layout/HeadingLayout'
 
 export type Props = {
   children: Function
   data: any
 }
 
-export default function Index (props: Props) {
+export default function Heading (props: Props) {
   let children = props.children
   let links = props.data.site.siteMetadata.links
   let title = props.data.site.siteMetadata.title
-  return <FullLayout title={title} twitter={links.twitter} gitter={links.gitter} github={links.github} medium={links.medium}>
+  return <HeadingLayout title={title} twitter={links.twitter} gitter={links.gitter} github={links.github} medium={links.medium}>
     {children()}
-  </FullLayout>
+  </HeadingLayout>
 }
 
 export const query = graphql`
-  query IndexLayoutQuery {
+  query HeadingLayoutQuery {
     site {
       siteMetadata {
         title

@@ -47,7 +47,7 @@ export default class TopBarMenu extends React.Component<Props> {
     return <List>
       <Item><ExternalLink href={this.props.gitter}>Community</ExternalLink></Item>
       {/*<Item><MenuLink to="#FIXME">Documentation</MenuLink></Item>*/}
-      {/*<Item><MenuLink to="#FIXME">API</MenuLink></Item>*/}
+      <Item><MenuLink to="/api">API</MenuLink></Item>
       <Item><ExternalLink href={this.props.medium}>Blog</ExternalLink></Item>
     </List>
   }
