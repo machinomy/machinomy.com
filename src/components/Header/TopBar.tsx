@@ -1,7 +1,7 @@
 import * as React from 'react'
-import styled from 'styled-components'
 import Link from 'gatsby-link'
 import Hamburger from './Hamburger'
+import styled from 'react-emotion'
 
 const Expanded = styled.div`
   background-color: ${props => props.theme.palette.primary};

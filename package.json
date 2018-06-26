@@ -2,7 +2,7 @@
   "name": "gatsby-starter-default",
   "description": "Gatsby default starter",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Team Machinomy <hello@machinomy.com>",
   "dependencies": {
     "@types/react-helmet": "^5.0.6",
     "gatsby": "^1.9.247",
@@ -19,7 +19,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "tsc --project tsconfig.json && gatsby build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
