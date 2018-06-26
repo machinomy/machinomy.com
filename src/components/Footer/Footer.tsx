@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
 const twitterWhite = require('../Header/twitter-white.svg')
 const gitterWhite = require('../Header/gitter-white.svg')

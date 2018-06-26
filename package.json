@@ -5,14 +5,17 @@
   "author": "Team Machinomy <hello@machinomy.com>",
   "dependencies": {
     "@types/react-helmet": "^5.0.6",
+    "emotion": "^9.2.4",
+    "emotion-server": "^9.2.4",
+    "emotion-theming": "^9.2.4",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
+    "gatsby-plugin-emotion": "^1.1.17",
     "gatsby-plugin-react-helmet": "^2.0.10",
-    "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-plugin-typescript": "^1.4.20",
     "prop-types": "^15.6.1",
-    "react-helmet": "^5.2.0",
-    "styled-components": "^3.3.2"
+    "react-emotion": "^9.2.4",
+    "react-helmet": "^5.2.0"
   },
   "keywords": [
     "gatsby"

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
 const clocks = require('./indexPage/clocks.svg')
 const moneybag = require('./indexPage/moneybag.svg')
@@ -10,33 +10,33 @@ const spankChain = require('./indexPage/spankchain.svg')
 const popchest = require('./indexPage/popchest.jpg')
 const onder = require('./indexPage/onder.jpg')
 
-const Title = styled.h1`
+const Title = styled('h1')`
   font-family: 'Roboto Slab', 'PT Serif', serif;
   font-weight: bolder;
   font-size: 350%;
   margin: 2rem 0;
 `
 
-const Subtitle = styled.p`
+const Subtitle = styled('p')`
   font-size: larger;
 `
 
-const Header = styled.h2`
+const Header = styled('h2')`
   font-family: 'Roboto Slab', 'PT Serif', serif;
   font-weight: bolder;
   font-size: 250%;
 `
 
-const Icon = styled.img`
+const Icon = styled('img')`
   width: 120px;
   height: 120px;
 `
 
-const Row = styled.div`
+const Row = styled('div')`
   margin-top: 2rem;
 `
 
-const TrustedLogo = styled.img`
+const TrustedLogo = styled('img')`
   width: 5rem;
   height: 5rem;
 `

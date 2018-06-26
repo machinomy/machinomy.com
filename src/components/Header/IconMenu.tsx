@@ -1,23 +1,23 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
 const twitterWhite = require('./twitter-white.svg')
 const gitterWhite = require('./gitter-white.svg')
 const githubWhite = require('./github-white.svg')
 
-const List = styled.ul`
+const List = styled('ul')`
   background: transparent;
   float: left;
   margin: 0;
   list-style-type: none;
 `
 
-const Item = styled.li`
+const Item = styled('li')`
   display: table-cell;
   vertical-align: middle;
 `
 
-const MenuLink = styled.a`
+const MenuLink = styled('a')`
   line-height: ${props => props.theme.topBar.lineHeight};
   height: ${props => props.theme.topBar.lineHeight};
   padding: 0 1rem;
@@ -34,7 +34,7 @@ const MenuLink = styled.a`
   }
 `
 
-const Icon = styled.img`
+const Icon = styled('img')`
   margin-top: -5px;
   width: 24px;
   height: 24px;

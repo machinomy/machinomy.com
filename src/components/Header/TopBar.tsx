@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import Hamburger from './Hamburger'
 import styled from 'react-emotion'
 
-const Expanded = styled.div`
+const Expanded = styled('div')`
   background-color: ${props => props.theme.palette.primary};
   color: white;
   max-width: none;

@@ -1,26 +1,26 @@
 import * as React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from 'react-emotion'
 import Link from 'gatsby-link'
 
-const List = styled.ul`
+const List = styled('ul')`
   background: transparent;
   float: left;
   margin: 0 0 0 -1rem;
   list-style-type: none;
 `
 
-const Item = styled.li`
+const Item = styled('li')`
   display: table-cell;
   vertical-align: middle;
 `
 
-const linkStyle = css`line-height: ${props => props.theme.topBar.lineHeight};
-  height: ${props => props.theme.topBar.lineHeight};
+const linkStyle = (props: any) => css`line-height: ${props.theme.topBar.lineHeight};
+  height: ${props.theme.topBar.lineHeight};
   padding: 0 1rem;
   color: #fff;
   display: block;
   
-  @media (max-width: ${props => props.theme.breakpoints.medium}) {
+  @media (max-width: ${props.theme.breakpoints.medium}) {
     & {
       padding-top: .5rem;
       padding-bottom: .5rem;
@@ -33,7 +33,7 @@ const MenuLink = styled(Link)`
   ${linkStyle}
 `
 
-const ExternalLink = styled.a`
+const ExternalLink = styled('a')`
   ${linkStyle}
 `
 
