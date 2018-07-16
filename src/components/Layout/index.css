@@ -10,13 +10,13 @@ a:focus, a:hover {
     color: inherit;
 }
 
-pre {
-    display: block;
-    overflow-x: auto;
-    padding: 0.5em;
-    margin: 0;
-    font-family: 'PT Mono', monospace;
-    min-height: 22rem;
+code {
+    font-family: "PT Mono", Consolas, "Liberation Mono", Courier, monospace;
+    font-weight: normal;
+    color: #657B83;
+    background-color: #FDF6E3;
+    border-width: 0;
+    padding: 0.125rem 0.3125rem 0.0625rem;
 }
 
 pre>code {
