@@ -11,6 +11,14 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
-    'gatsby-plugin-styled-components'
+    'gatsby-plugin-emotion',
+    'gatsby-transformer-remark',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/data/`,
+      },
+    },
   ]
 }

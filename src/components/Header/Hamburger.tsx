@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled, { StyledProps } from 'styled-components'
+import styled from 'react-emotion'
 
 export interface Props {
   isActive?: boolean
@@ -30,15 +30,23 @@ export interface StyleProps {
   hoverTransitionTimingFunction: string
 }
 
+const Button = styled('button')((props: any) => ({
+  padding: `${props.paddingY} ${props.paddingX}`,
+  display: 'inline-block',
+  cursor: 'pointer',
+  transitionProperty: 'opacity, filter',
+  transitionDuration: ''
+}))
+
 // hamburger hamburger--collapse
-const Button = styled<StyleProps, any>('button')`
-  padding: ${props => props.paddingY} ${props => props.paddingX};
+const AButton = styled('button')`
+  padding: ${(props: any) => props.paddingY} ${(props: any) => props.paddingX};
   display: inline-block;
   cursor: pointer;
 
   transition-property: opacity, filter;
-  transition-duration: ${props => props.hoverTransitionDuration};
-  transition-timing-function: ${props => props.hoverTransitionTimingFunction};
+  transition-duration: ${(props: any) => props.hoverTransitionDuration};
+  transition-timing-function: ${(props: any) => props.hoverTransitionTimingFunction};
 
   font: inherit;
   color: inherit;
@@ -49,27 +57,27 @@ const Button = styled<StyleProps, any>('button')`
   overflow: visible;
 
   &:hover {
-    opacity: ${props => props.hoverOpacity};
+    opacity: ${(props: any) => props.hoverOpacity};
   }
 `
 
-const Box = styled<StyleProps, any>("span")`
-  width: ${props => props.layerWidth};
-  height: calc(${props => props.layerHeight} * 3 + ${props => props.layerSpacing} * 2);
+const Box = styled("span")`
+  width: ${(props: any) => props.layerWidth};
+  height: calc(${(props: any) => props.layerHeight} * 3 + ${(props: any) => props.layerSpacing} * 2);
   display: inline-block;
   position: relative;
 `
 
-const Inner = styled<StyleProps, any>("span")`
+const Inner = styled("span")`
   display: block;
   top: 50%;
-  margin-top: calc(${props => props.layerHeight} / -2);
+  margin-top: calc(${(props: any) => props.layerHeight} / -2);
     
   &, &::before, &::after {
-    width: ${props => props.layerWidth};
-    height: ${props => props.layerHeight};
-    background-color: ${props => props.layerColor};
-    border-radius: ${props => props.layerBorderRadius};
+    width: ${(props: any) => props.layerWidth};
+    height: ${(props: any) => props.layerHeight};
+    background-color: ${(props: any) => props.layerColor};
+    border-radius: ${(props: any) => props.layerBorderRadius};
     position: absolute;
     transition-property: transform;
     transition-duration: 0.15s;
@@ -77,13 +85,13 @@ const Inner = styled<StyleProps, any>("span")`
   }
 
   &::before {
-    top: calc((${p => p.layerSpacing} + ${p => p.layerHeight}) * -1);
+    top: calc((${(props: any) => props.layerSpacing} + ${(props: any) => props.layerHeight}) * -1);
     content: "";
     display: block;
   }
 
   &::after {
-    bottom: calc((${p => p.layerSpacing} + ${p => p.layerHeight}) * -1);
+    bottom: calc((${(props: any) => props.layerSpacing} + ${(props: any) => props.layerHeight}) * -1);
     content: "";
     display: block;
   }
@@ -97,7 +105,7 @@ const Collapsed = styled(Inner)`
   transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   
   &::after {
-    top: calc((${p => p.layerSpacing} * 2 + ${p => p.layerHeight} * 2) * -1);
+    top: calc((${(props: any) => props.layerSpacing} * 2 + ${(props: any) => props.layerHeight} * 2) * -1);
     transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
                 opacity 0.1s linear;
   }
@@ -149,10 +157,10 @@ export default class Hamburger extends React.Component<Props> {
 
   render () {
     let inner = this.props.isActive ? <Active {...this.styleProps}/> : <Collapsed {...this.styleProps} />
-    return <Button type="button" {...this.styleProps} className={this.props.className} onClick={this.props.onClick}>
+    return <AButton type="button" {...this.styleProps} className={this.props.className} onClick={this.props.onClick}>
       <Box {...this.styleProps}>
         {inner}
       </Box>
-    </Button>
+    </AButton>
   }
 }

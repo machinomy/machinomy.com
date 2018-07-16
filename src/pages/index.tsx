@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
 const clocks = require('./indexPage/clocks.svg')
 const moneybag = require('./indexPage/moneybag.svg')
@@ -10,33 +10,33 @@ const spankChain = require('./indexPage/spankchain.svg')
 const popchest = require('./indexPage/popchest.jpg')
 const onder = require('./indexPage/onder.jpg')
 
-const Title = styled.h1`
+const Title = styled('h1')`
   font-family: 'Roboto Slab', 'PT Serif', serif;
   font-weight: bolder;
   font-size: 350%;
   margin: 2rem 0;
 `
 
-const Subtitle = styled.p`
+const Subtitle = styled('p')`
   font-size: larger;
 `
 
-const Header = styled.h2`
+const Header = styled('h2')`
   font-family: 'Roboto Slab', 'PT Serif', serif;
   font-weight: bolder;
   font-size: 250%;
 `
 
-const Icon = styled.img`
+const Icon = styled('img')`
   width: 120px;
   height: 120px;
 `
 
-const Row = styled.div`
+const Row = styled('div')`
   margin-top: 2rem;
 `
 
-const TrustedLogo = styled.img`
+const TrustedLogo = styled('img')`
   width: 5rem;
   height: 5rem;
 `
@@ -100,17 +100,17 @@ const IndexPage = () => (
         <ol>
           <li>
             <p>Clone machinomy repository</p>
-            <p><pre>$ git clone https://github.com/machinomy/machinomy</pre></p>
+            <p><code>$ git clone https://github.com/machinomy/machinomy</code></p>
           </li>
           <li>
             <p>Build the code</p>
-            <p><pre>$ cd machinomy && yarn install && yarn bootstrap && yarn build</pre></p>
+            <p><code>$ cd machinomy && yarn install && yarn bootstrap && yarn build</code></p>
           </li>
           <li>
             <p>Run the client</p>
-            <p><pre>$ export PROVIDER_URL=https://rinkeby.infura.io</pre></p>
-            <p><pre>$ export MNEMONIC=repair good hover betray buddy deal night wide mean round great tackle</pre></p>
-            <p><pre>$ DEBUG=* node packages/examples/src/client.js</pre></p>
+            <p><code>$ export PROVIDER_URL=https://rinkeby.infura.io</code></p>
+            <p><code>$ export MNEMONIC=repair good hover betray buddy deal night wide mean round great tackle</code></p>
+            <p><code>$ DEBUG=* node packages/examples/src/client.js</code></p>
           </li>
           <li>
             <p>Go to <a href="//playground.machinomy.com/">Playground Dashboard</a></p>

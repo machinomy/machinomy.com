@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Mono|PT+Sans|Roboto+Slab');
+@import './foundation.css';
+
+body {
+    font-family: PT Sans,Acumin Pro,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+    font-weight: 400;
+}
+
+a:focus, a:hover {
+    color: inherit;
+}
+
+code {
+    font-family: "PT Mono", Consolas, "Liberation Mono", Courier, monospace;
+    font-weight: normal;
+    color: #657B83;
+    background-color: #FDF6E3;
+    border-width: 0;
+    padding: 0.125rem 0.3125rem 0.0625rem;
+}
+
+pre>code {
+    display: block;
+    margin: 0 auto 1rem auto;
+    padding: 1rem;
+}
