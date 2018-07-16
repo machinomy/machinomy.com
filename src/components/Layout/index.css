@@ -9,3 +9,18 @@ body {
 a:focus, a:hover {
     color: inherit;
 }
+
+pre {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    margin: 0;
+    font-family: 'PT Mono', monospace;
+    min-height: 22rem;
+}
+
+pre>code {
+    display: block;
+    margin: 0 auto 1rem auto;
+    padding: 1rem;
+}

@@ -4,7 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const HEADER_ONLY = [ /^\/api/ ]
+const HEADER_ONLY = [ ]
 
 async function onCreatePage ({ page, boundActionCreators }) {
   const { createPage } = boundActionCreators
