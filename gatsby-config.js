@@ -3,7 +3,7 @@ module.exports = {
     title: 'Machinomy – micropayments on Ethereum',
     links: {
       twitter: 'https://twitter.com/machinomy',
-      gitter: 'https://gitter.com/machinomy/machinomy',
+      gitter: 'https://gitter.im/machinomy/machinomy',
       github: 'https://github.com/machinomy/machinomy',
       medium: 'https://medium.com/machinomy'
     }
