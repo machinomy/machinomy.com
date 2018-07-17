@@ -11,3 +11,4 @@ dist/
 /public
 .DS_Store
 dist/
+.idea/
