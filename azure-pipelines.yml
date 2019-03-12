@@ -5,6 +5,14 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
+  - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
+    displayName: 'Yarn Install'
+    inputs:
+      Arguments: 'install --pure-lockfile'
+  - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
+    displayName: 'Yarn Build'
+    inputs:
+      Arguments: 'build'
   - script: npm run container:build
     displayName: 'Build container image'
   - script: docker login -u $(PRINCIPAL_CLIENT_ID) -p $(PRINCIPAL_SECRET) $(CONTAINER_REGISTRY_URL)
