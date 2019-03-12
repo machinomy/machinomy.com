@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-default",
   "description": "Gatsby default starter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Team Machinomy <hello@machinomy.com>",
   "dependencies": {
     "@types/react-helmet": "^5.0.6",
