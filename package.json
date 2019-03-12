@@ -1,6 +1,7 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "machinomy.com",
+  "description": "machinomy.com website",
+  "private": true,
   "version": "1.0.1",
   "author": "Team Machinomy <hello@machinomy.com>",
   "dependencies": {
@@ -28,7 +29,9 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "container:build": "docker build -t ${CONTAINER_REGISTRY}/machinomy.com:${npm_package_version} .",
+    "container:push": "docker push ${CONTAINER_REGISTRY}/machinomy.com:${npm_package_version}"
   },
   "devDependencies": {
     "prettier": "^1.12.0"
