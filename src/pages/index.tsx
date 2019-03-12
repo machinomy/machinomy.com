@@ -112,11 +112,13 @@ const IndexPage = () => (
             <p><code>$ export MNEMONIC=repair good hover betray buddy deal night wide mean round great tackle</code></p>
             <p><code>$ DEBUG=* node packages/examples/src/client.js</code></p>
           </li>
+          {/*
           <li>
             <p>Go to <a href="//playground.machinomy.com/">Playground Dashboard</a></p>
             <p>Use <code>peanut giggle name tree canoe tube render ketchup survey segment army will</code> mnemonic for Vynos wallet</p>
             <p>Go to Channels tab and close one of the channels</p>
           </li>
+          */}
           <li>
             <p>Notice transactions on <a href="https://rinkeby.etherscan.io/address/0x84dcbedf1ac6f69947d5a9ae34d9dcdd6ba1da05">Rinkeby Etherscan</a></p>
           </li>
