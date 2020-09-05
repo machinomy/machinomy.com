@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '__GATSBY_IPFS_PATH_PREFIX__',
   siteMetadata: {
     title: 'Machinomy – micropayments on Ethereum',
     links: {
@@ -13,6 +14,7 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-emotion',
     'gatsby-transformer-remark',
+    'gatsby-plugin-ipfs',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
