@@ -11,7 +11,7 @@
     "emotion-theming": "^9.2.4",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
-    "gatsby-plugin-emotion": "^1.1.17",
+    "gatsby-plugin-emotion": "^4.3.10",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-plugin-typescript": "^1.4.20",
     "gatsby-source-filesystem": "^1.5.39",
@@ -19,7 +19,8 @@
     "prop-types": "^15.6.1",
     "react-emotion": "^9.2.4",
     "react-helmet": "^5.2.0",
-    "ts-node": "^7.0.0"
+    "ts-node": "^7.0.0",
+    "buffer": "^5.6.0"
   },
   "keywords": [
     "gatsby"

@@ -128,29 +128,6 @@ const IndexPage = () => (
         </ol>
       </div>
     </Row>
-    <Row className="grid-x grid-padding-x">
-      <div className="cell medium-4 text-right">
-        <Header>Trusted By</Header>
-      </div>
-      <div className="cell medium-2 text-center">
-        <TrustedLink href="https://spankchain.com">
-          <TrustedLogo src={spankChain} />
-          <p>SpankChain</p>
-        </TrustedLink>
-      </div>
-      <div className="cell medium-2 text-center">
-        <TrustedLink href="https://popchest.com">
-          <TrustedLogo src={popchest} />
-          <p>PopChest</p>
-        </TrustedLink>
-      </div>
-      <div className="cell medium-2 text-center">
-        <TrustedLink href="https://onder.tech">
-          <TrustedLogo src={onder} />
-          <p>ØNDER</p>
-        </TrustedLink>
-      </div>
-    </Row>
   </div>
 )
 
